@@ -66,10 +66,41 @@ console.log(resultadoLog);
 resultadoLog = !valorUno;
 console.log(resultadoLog);
 //Condicionales
+//else if: Si la primera condicion se ejecuta las siguientes ya no se ejecutan.
+// if, if: No es buena forma de usarlo, ya que se siguen ejecuntado las condicionales
 if (nombre == "Jorge"){ //Si es verdadero se ejecuta
     console.log(`Tu nombre es ${nombre}`);
 }else if (nombre == "Luis") {
     console.log(`Tu nombre es ${nombre}`);
 }else{
     console.log("Tu nombre es diferente")
+}
+
+//Practica 1
+//Heladeria
+let pequeño = 15, mediano = 25, grande = 30;
+let fresa = "Fresa", mango = "Mango", limon = "Limon", rompope = "Rompope";
+let dineroDisponible = prompt(`¿Cuanto dinero tienes ${nombre}?`)
+if (dineroDisponible>=15) {
+    alert(`Bienvenido ${nombre}, somos heladerias Michoacana\n`);
+    let tamañoElegido = prompt("Le mostramos los tamaños.\nEliga su tamaño\n1. Helado Pequeño: $15\n2. Helado Mediano: $25\n3. Helado Grande: $30");
+    let saborElegido = prompt("Tenemos los siguientes sabores:\n1. Fresa\n2. Mango\n3. Limon\n4. Rompope\nDigie un numero para seleccionarlo")
+    if (tamañoElegido && saborElegido) {
+        if (tamañoElegido == "1") {
+            dineroDisponible-=pequeño
+            alert("Eligio el pequeño");
+        } else if (tamañoElegido == "2") {
+            dineroDisponible-=mediano
+            alert("Eligio el mediano");
+        }else if (tamañoElegido == "3") {
+            dineroDisponible-=grande
+            alert("Eligio el grande");
+        } if (tamañoElegido && saborElegido) {
+            alert(`Gracias por tu compra ${nombre}, retire su cambio: $${dineroDisponible}`);
+        } 
+    } else {
+        alert("Lo sentimos, no podemos atender su solicitud");
+    }
+} else {
+    alert("Su dinero no es suficiente para comprar alguno de nuestros Helados");
 }
