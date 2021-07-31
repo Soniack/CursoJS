@@ -78,32 +78,37 @@ if (nombre == "Jorge"){ //Si es verdadero se ejecuta
 
 //Practica 1
 //Heladeria
-// let pequeño = 15, mediano = 25, grande = 30;
-// let fresa = "Fresa", mango = "Mango", limon = "Limon", rompope = "Rompope";
-// let dineroDisponible = prompt(`¿Cuanto dinero tienes ${nombre}?`)
-// if (dineroDisponible>=15) {
-//     alert(`Bienvenido ${nombre}, somos heladerias Michoacana\n`);
-//     let tamañoElegido = prompt("Le mostramos los tamaños.\nEliga su tamaño\n1. Helado Pequeño: $15\n2. Helado Mediano: $25\n3. Helado Grande: $30");
-//     let saborElegido = prompt("Tenemos los siguientes sabores:\n1. Fresa\n2. Mango\n3. Limon\n4. Rompope\nDigie un numero para seleccionarlo")
-//     if (tamañoElegido && saborElegido) {
-//         if (tamañoElegido == 1) {
-//             dineroDisponible-=pequeño
-//             alert("Eligio el pequeño");
-//         } else if (tamañoElegido == 2) {
-//             dineroDisponible-=mediano
-//             alert("Eligio el mediano");
-//         }else if (tamañoElegido == 3) {
-//             dineroDisponible-=grande
-//             alert("Eligio el grande");
-//         } if (tamañoElegido && saborElegido) {
-//             alert(`Gracias por tu compra ${nombre}, retire su cambio: $${dineroDisponible}`);
-//         } 
-//     } else {
-//         alert("Lo sentimos, no podemos atender su solicitud");
-//     }
-// } else {
-//     alert("Su dinero no es suficiente para comprar alguno de nuestros Helados");
-// }
+let tamaño = {
+    pequeño: 15,
+    mediano: 25,
+    grande: 30
+}
+let sabores = ["Fresa", "Mango", "Limon", "Rompope"];
+let dineroDisponible = prompt(`¿Cuanto dinero tienes ${nombre}?`)
+if (dineroDisponible>=15) {
+    alert(`Bienvenido ${nombre}, somos heladerias Michoacana\n`);
+    let tamañoElegido = prompt("Le mostramos los tamaños.\nEliga su tamaño\n1. Helado Pequeño: $15\n2. Helado Mediano: $25\n3. Helado Grande: $30");
+    let saborElegido = prompt(`Tenemos los siguientes sabores:\n1. ${sabores[0]}\n2. ${sabores[1]}\n3. ${sabores[2]}\n4. ${sabores[3]}\nDigite un numero para seleccionarlo`);
+    let sabor = sabores[saborElegido-1];
+    if (tamañoElegido && saborElegido) {
+        if (tamañoElegido == 1) {
+            dineroDisponible-=tamaño["pequeño"]
+            alert(`Eligio el pequeño de ${sabor}`);
+        } else if (tamañoElegido == 2) {
+            dineroDisponible-=tamaño["mediano"]
+            alert(`Eligio el mediano de ${sabor}`);
+        }else if (tamañoElegido == 3) {
+            dineroDisponible-=tamaño["grande"]
+            alert(`Eligio el grande de ${sabor}`);
+        } if (tamañoElegido && saborElegido) {
+            alert(`Gracias por tu compra ${nombre}, retire su cambio: $${dineroDisponible}`);
+        } 
+    } else {
+        alert("Lo sentimos, no podemos atender su solicitud");
+    }
+} else {
+    alert("Su dinero no es suficiente para comprar alguno de nuestros Helados");
+}
 
 //Arreglos: Contiene varios valores o datos: Son Objetos, no datos primitivos
 //Todas las posiciones por encima estan declaradas, si no existe el valor sera indefinido
@@ -121,4 +126,3 @@ let pc = {
     ram: "16GB"
 }
 console.log(`La pc de ${pc["nombre"]} tiene un ${pc["cpu"]}, ${pc["ram"]} de ram y una ${pc["gpu"]}`);
-
