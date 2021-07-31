@@ -126,3 +126,57 @@ let pc = {
     ram: "16GB"
 }
 console.log(`La pc de ${pc["nombre"]} tiene un ${pc["cpu"]}, ${pc["ram"]} de ram y una ${pc["gpu"]}`);
+
+//Bucles de iteracion
+//While: Siempre pregunta hasta que la condicion sea false
+let numeroWhile = 0;
+while (numeroWhile < 1000) { //Hasta que el numero sea menor que 6 se ejecuta, si es igual ya no se ejecuta
+    numeroWhile++
+    console.log(numeroWhile);
+    if (numeroWhile == 10) {
+        break;//Break: Termina la sentencia While
+    }
+}
+//Do while: hacer mientras, es un bucle indeterminado
+let numeroDoWhile = 0;
+do {
+    numeroDoWhile++
+    console.log(numeroDoWhile);
+} while (numeroDoWhile > 6);//Cuando la condicion ya no se cumple DO ya no se ejecuta
+//for: Bucle determinado
+//Se conforma: declaramos e inicializamos, condicion e iteramos (incremento o decremento) (hacer lo mismo)
+//La variable se puede declarar antes y usar en el ciclo
+for (let i = 0; i < 10; i++){ //la variable i solo exite en este bloque
+    if (i==3) {
+        continue;//Se usa para saltar una iteracion
+    }
+    if (i==5) {
+        break;//Tambien se puede usar break
+    }
+    console.log(i);
+}
+//for in:
+let animales = ["gato", "perro", "ave"];
+for (animal in animales) {//la variable animal en cada vuelta del bucle tomara el valor de cada uno de los indices, posiciones o numero
+    console.log(animal);
+    console.log(animales[animal]);//aqui devuelve el contenido de la posicion del array, ya que animal en for in solo toma el indice, como si fuera: animales[0]
+}
+//for of
+for (animal of animales) {//la variable animal en cada vuelta del bucle tomara el valor del contenido
+    console.log(animal);
+}
+//label: sentencias que permite asociar un bucle, excepto froeach a un nombre, para poder terminarlo cuando queramos
+// Se usa para etiquetar un for, y poder terminarlo con break.
+array1 = ["maria", "josefa", "roberta"];
+array2 = ["jorge", "luis", array1, "pedro"];
+forHombres:
+for (let array in array2){
+    if (array == 2) {
+        for (let array of array1){
+            continue forHombres; //Se puede usar brack y continue
+            console.log(array);
+        }
+    }else{
+        console.log(array2[array]);
+    }
+}
