@@ -165,7 +165,7 @@ for (animal in animales) {//la variable animal en cada vuelta del bucle tomara e
 for (animal of animales) {//la variable animal en cada vuelta del bucle tomara el valor del contenido
     console.log(animal);
 }
-//label: sentencias que permite asociar un bucle, excepto froeach a un nombre, para poder terminarlo cuando queramos
+//label: sentencias que permite asociar un bucle a un nombre, excepto froeach, para poder terminarlo cuando queramos
 // Se usa para etiquetar un for, y poder terminarlo con break.
 array1 = ["maria", "josefa", "roberta"];
 array2 = ["jorge", "luis", array1, "pedro"];
@@ -180,3 +180,60 @@ for (let array in array2){
         console.log(array2[array]);
     }
 }
+//Funciones: Se refiere a bloques de codigo que se pueden volver a llamar dentro del mismo codigo
+//Hay varias formas de crear funciones
+//Forma 1
+function saludar() {
+    let estado = prompt(`Hola ${nombre} como estas`);
+    if (estado == "bien") {
+        console.log("Me alegro mucho!")
+    } else {
+        console.log("Que mal que estes asi");
+    }
+}
+saludar();
+//Forma 2: Asignandolas en variables
+let saludarDos = function() {
+    let estado = prompt(`Hola ${nombre} como estas`);
+    if (estado == "bien") {
+        console.log("Me alegro mucho!")
+    } else {
+        console.log("Que mal que estes asi");
+    }
+}
+//Return: Devulve un valor
+function retorno() {
+    return("Este valor");//Return tambien finaliza una funcion, por ello si esta antes solo devuelve el valor pero no ejecuta el bloque de codigo
+    console.log("Return devuelve un valor");
+}
+let devuelve = retorno();//Esto solo ejecuta la funcion, si queremos que sea un valor, lo debemos de retornar, cuando la funcion finaliza se convierta en lo que se retorna
+console.log(devuelve);
+//Parametros en funciones: Estos se usan para las funciones, van despues del nombre de la funcion.
+function suma(numero1, numero2) {//Aqui las variables o parametros se declaran
+    return numero1 + numero2;
+}
+let fSuma = suma(10,11);//Aqui las variables o parametros de la funcion se definen
+console.log(fSuma);
+//
+function saludoConParametros(nombreFuncion) {
+    let frase = `Hola ${nombreFuncion}`;
+    console.log(frase);
+}
+saludoConParametros("Jorge");
+//El Scope de las variables que se declaran en las funciones es regional, las variables que declaran en los parametros solo se usan dentro de la funcion
+//Las funciones tiene un Scope(Alcance) global o se pueden llamar en cualquier parte del codigo
+//Funciones Flecha
+const saludarFlecha = (parametro) => {
+    let resFlecha = `Este es tu parametro: ${parametro}`;
+    console.log(resFlecha);
+}
+saludarFlecha("Mi Parametro");
+const unParametro = parametro => {//Un beneficio de usar esta forma, es que si solo declaramos un parametro, podemos quitar los parentesis
+    let resFlecha = `Este es tu parametro: ${parametro}`;
+    console.log(resFlecha);
+}
+unParametro("Mi Parametro");
+//Si dentro de la funcion solo hay una linea de codigo podemos declararla enseguida de la felcha sin usar llaves
+//Tambien si aplicamos lo anterior automaticamente se retorna el valor sin usar return
+const unaLinea = numero => console.log(numero +1);
+unaLinea(3);
