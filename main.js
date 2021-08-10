@@ -237,3 +237,80 @@ unParametro("Mi Parametro");
 //Tambien si aplicamos lo anterior automaticamente se retorna el valor sin usar return
 const unaLinea = numero => console.log(numero +1);
 unaLinea(3);
+//Ejercicio Fiesta
+let promo = false;
+console.log(`Bienvenido a la fiesta ${nombre}`);
+let edadF = prompt("¿Cual es tu edad?");
+let horaActual = prompt("¿Cual es la hora actual?");
+if (edadF >= 18) {
+    horarioF(horaActual);
+    console.log("Puedes pasar");
+} else {
+    console.log("Eres menor de edad, no puedes pasar");
+}
+function horarioF (hora) {
+        console.log("La hora actual es "+hora);
+        if (hora == 2.1) {
+            promo = true;
+            console.log("Entraste justo despues de las 2:00AM, entras gratis");
+        }else{
+            console.log("Pagas entrada, son $3");
+        }
+}
+//Ejercicio Sistema de Escuela
+let cantidad = prompt("¿Cuantos alumnos son?");
+let alumnos = [];//Los arrays podemos declararlos vacios, para despues llenarlos
+for (let i = 0; i < cantidad; i++) {//For estara pidiendo datos hasta que llege a la cantidad dada por el usuario
+    alumnos[i]=[prompt("Nombre del alumno " + (i+1)),0];//alumnos recibe el valor de i, en esa posicion del array alumnos, ingresara su nombre y sus asistencias
+}
+function asistencia(nombre,posicion) {
+    let presencia = prompt(nombre);
+    if (presencia == "p" || presencia == "P") {
+        alumnos[posicion][1]++;
+    }
+}
+for (let i = 0; i < 1; i++) {
+    for (alumno in alumnos) {
+        asistencia(alumnos[alumno][0],alumno);
+    }
+}
+for (alumno in alumnos){
+    let resultado = `Nombre: ${alumnos[alumno][0]}:<br>Asistencias: ${alumnos[alumno][1]}<br>Ausencias: ${30-alumnos[alumno][1]}`;
+    if (30 - alumnos[alumno][1] >= 18) {
+        resultado+= "<b style='color:red'>REPROBADO POR FALTAS</b><br><br>";
+    }else{
+        resultado+="<br><br>";
+    }document.write(resultado);
+}
+
+//Ejercicio Calculadora
+function suma(n1,n2) {
+    return parseInt(n1)+parseInt(n2);
+}
+function resta(n1,n2) {
+    return parseInt(n1)-parseInt(n2);
+}
+function multiplicacion(n1,n2) {
+    return parseInt(n1)*parseInt(n2);
+}
+function division(n1,n2) {
+    return parseInt(n1)/parseInt(n2);
+}
+let n1 = prompt("Primer digito");
+let n2 = prompt("Segundo digito");
+let op = prompt("¿Que operacion deseas realizar?\n1.Suma\n2.Resta\n3.Multiplicacion\n4.Division");
+if (op == 1) {
+    let res = suma(n1,n2);
+    alert(res);
+} else if (op == 2){
+    let res = resta(n1,n2);
+    alert(res);
+}else if(op == 3){
+    let res = multiplicacion(n1,n2);
+    alert(res);
+}else if(op == 4){
+    let res = division(n1,n2)
+    alert(res);
+}else{
+    alert("Esta operacion no existe");
+}
